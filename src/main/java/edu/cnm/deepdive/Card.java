@@ -3,7 +3,6 @@ package edu.cnm.deepdive;
 public class Card {
 
 
-
   private final Rank rank;
   private final Suit suit;
 
@@ -25,4 +24,23 @@ public class Card {
   public String toString() {
     return rank.getSymbol() + suit.getSymbol();
   }
+
+  @Override
+  public int hashCode() {
+    return super.hashCode();
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    boolean eq = false; //compare variable
+    if (obj == this) {
+      eq = true;
+    } else if (obj instanceof Card) {
+      Card other = (Card) obj;
+      eq = ((rank == other.rank) && (suit == other.suit))
+    }
+
+    return eq;
+  }
+
 }
