@@ -2,7 +2,7 @@ package edu.cnm.deepdive;
 
 import java.util.Objects;
 
-public class Card {
+public class Card implements Comparable<Card> {
 
 
   private final Rank rank;
@@ -55,4 +55,12 @@ public class Card {
     return eq;
   }
 
+  @Override
+  public int compareTo(Card other) {
+    int comparison = suit.compareTo(other.suit);
+    if (comparison == 0) {
+      comparison = rank.compareTo(other.rank);
+    }
+    return comparison;
+  }
 }
